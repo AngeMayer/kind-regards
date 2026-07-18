@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kind Regards, Sustainability strategy meets practical delivery</title>
+<meta name="description" content="Kind Regards helps organisations turn sustainability and circular economy strategy into measurable, on-the-ground delivery, across cultures and around the world." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#BA4A22;
+    --teal-deep:#8E3819;
+    --teal-soft:#F6E6DD;
+    --teal-tint:#FBF3EE;
+    --ink:#15302F;
+    --body:#3F5453;
+    --muted:#6B807F;
+    --line:#E4ECEB;
+    --bg:#FFFFFF;
+    --bg-alt:#FAFCFC;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--body);
+    background:var(--bg);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    font-size:18px;
+  }
+  h1,h2,h3{font-family:'Manrope','Inter',sans-serif;color:var(--ink);font-weight:800;line-height:1.18;letter-spacing:-0.025em;margin:0;}
+  p{margin:0 0 1.1em;}
+  a{color:var(--teal);text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* Eyebrow */
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--teal);margin:0 0 18px;
+  }
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.86);
+    backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.nav.scrolled{border-color:var(--line);box-shadow:0 1px 14px rgba(20,48,47,0.04);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{font-family:'Manrope','Inter',sans-serif;font-size:21px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;}
+  .brand span{color:var(--teal);}
+  .nav-links{display:flex;gap:34px;align-items:center;}
+  .nav-links a{color:var(--body);font-size:15px;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:var(--teal);}
+  .nav-links a.nav-cta{
+    background:var(--teal);color:#fff;padding:10px 20px;border-radius:999px;font-size:15px;font-weight:600;
+    transition:background .2s, transform .2s;
+  }
+  .nav-links a.nav-cta:hover{background:var(--teal-deep);color:#fff;transform:translateY(-1px);}
+  @media(max-width:760px){ .nav-links a:not(.nav-cta){display:none;} }
+
+  /* HERO */
+  .hero{padding:150px 0 120px;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.35;}
+  .hero-bg svg,.hero-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero:after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(100deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 40%, rgba(255,255,255,.5) 72%, rgba(255,255,255,.28) 100%);
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero h1{font-size:clamp(2.5rem,5.6vw,4.15rem);max-width:16ch;margin-bottom:26px;}
+  .hero .lead{font-size:clamp(1.12rem,2.1vw,1.35rem);color:var(--body);max-width:46ch;margin-bottom:38px;}
+  .hero .lead strong{color:var(--ink);font-weight:600;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;border-radius:999px;font-size:16px;font-weight:600;
+    transition:background .2s,transform .2s,box-shadow .2s,border-color .2s,color .2s;
+  }
+  .btn-primary{background:var(--teal);color:#fff;box-shadow:0 8px 22px rgba(14,124,130,0.22);}
+  .btn-primary:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,124,130,0.28);}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:#fff;}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+  .btn svg{width:17px;height:17px;}
+
+  /* SECTION basics */
+  section{padding:96px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{max-width:60ch;margin-bottom:54px;}
+  .section-head h2{font-size:clamp(2rem,3.8vw,2.85rem);margin-bottom:20px;}
+  .section-head p{font-size:1.12rem;color:var(--muted);}
+
+  /* PROBLEM (statement band) */
+  .statement{padding:104px 0;background:var(--teal-tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .statement .wrap{max-width:880px;text-align:center;}
+  .statement h2{font-size:clamp(1.8rem,3.6vw,2.7rem);color:var(--ink);margin-bottom:8px;line-height:1.25;}
+  .statement h2 em{font-style:normal;color:var(--teal);}
+  .statement p{font-size:1.15rem;color:var(--body);max-width:60ch;margin:22px auto 0;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:64px;align-items:start;}
+  .photo-frame{
+    position:relative;border-radius:18px;overflow:hidden;background:var(--teal-soft);
+    aspect-ratio:4/5;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-placeholder{padding:30px;color:var(--teal-deep);}
+  .photo-placeholder svg{width:46px;height:46px;opacity:.55;margin-bottom:14px;}
+  .photo-placeholder span{display:block;font-size:14px;line-height:1.5;color:var(--muted);}
+  .about-body h3{font-size:1.25rem;margin:0 0 10px;}
+  .about-body p{color:var(--body);}
+  .signature{margin-top:26px;font-family:'Manrope','Inter',sans-serif;font-size:1.45rem;color:var(--ink);}
+  .signature small{display:block;font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:.04em;color:var(--muted);font-weight:500;margin-top:4px;}
+  @media(max-width:820px){ .about-grid{grid-template-columns:1fr;gap:36px;} .photo-frame{max-width:340px;} }
+
+  /* WORK / proof */
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .work-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 30px 28px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .work-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,48,47,0.07);border-color:var(--teal-soft);}
+  .work-tag{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+  .work-card h3{font-size:1.22rem;margin-bottom:10px;line-height:1.3;}
+  .work-card p{font-size:0.99rem;color:var(--body);margin-bottom:14px;}
+  .work-role{font-size:13.5px;color:var(--muted);font-weight:500;display:inline-flex;align-items:center;gap:7px;}
+  .work-role:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);}
+  @media(max-width:720px){ .work-grid{grid-template-columns:1fr;} }
+
+  /* SERVICES */
+  .serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;}
+  .serv-item{display:flex;gap:18px;align-items:flex-start;padding:6px 0;}
+  .serv-ic{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;}
+  .serv-ic svg{width:22px;height:22px;stroke:var(--teal-deep);}
+  .serv-item h3{font-size:1.1rem;margin-bottom:6px;}
+  .serv-item p{font-size:0.98rem;color:var(--body);margin:0;}
+  @media(max-width:720px){ .serv-grid{grid-template-columns:1fr;gap:8px 0;} }
+
+  /* VALUE CARDS (merged into Why work with me) */
+  .val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px;}
+  .val-grid.four{grid-template-columns:repeat(4,1fr);gap:22px;}
+  .val-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;}
+  .val-num{font-family:'Manrope','Inter',sans-serif;font-size:1.5rem;color:var(--teal);margin-bottom:14px;}
+  .val-card h3{font-size:1.12rem;margin-bottom:10px;}
+  .val-card p{font-size:0.96rem;color:var(--body);margin:0;}
+  @media(max-width:980px){ .val-grid.four{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:820px){ .val-grid{grid-template-columns:1fr;} }
+  @media(max-width:560px){ .val-grid.four{grid-template-columns:1fr;} }
+
+  /* CONTACT (dark) */
+  .contact{background:var(--ink);color:#E7DAD3;padding:104px 0;}
+  .contact .wrap{max-width:760px;text-align:center;}
+  .contact .eyebrow{color:#E59A74;}
+  .contact h2{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;}
+  .contact p{color:#CDBAB0;font-size:1.12rem;max-width:50ch;margin:0 auto 38px;}
+  .contact .btn-row{justify-content:center;}
+  .contact .btn-ghost{background:transparent;border-color:rgba(255,255,255,0.3);color:#fff;}
+  .contact .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,0.07);transform:translateY(-2px);}
+  .contact .loc{margin-top:34px;font-size:14.5px;color:#A98E81;}
+
+  /* FOOTER (dark) */
+  footer.foot{background:#10211F;color:#9A8478;padding:54px 0;}
+  footer.foot .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;}
+  .foot-brand{font-family:'Manrope','Inter',sans-serif;color:#F0E6E0;font-size:18px;font-weight:700;}
+  .ack{max-width:560px;font-size:14px;line-height:1.7;color:#B7A89E;}
+  .ack strong{color:#E59A74;font-weight:600;display:block;margin-bottom:6px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;}
+  .foot-copy{width:100%;border-top:1px solid rgba(255,255,255,0.09);margin-top:18px;padding-top:20px;font-size:13px;color:#6E5C52;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">Kind <span>Regards</span></div>
+    <nav class="nav-links">
+      <a href="#about">About me</a>
+      <a href="#offerings">My Offerings</a>
+      <a href="#work">Work Examples</a>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Faint nature backdrop. Royalty-free custom illustration (no faces). To use a real photo instead, drop a file named "hero.jpg" beside this page, it appears automatically, kept faint for readability. -->
+  <div class="hero-bg" id="heroBg" aria-hidden="true">
+    <svg id="heroSvg" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="1115" cy="205" r="92" fill="#E7B796"/>
+      <path d="M0 455 Q 240 388 480 428 Q 720 468 960 432 Q 1200 398 1440 442 L1440 700 L0 700 Z" fill="#DCBAA8"/>
+      <path d="M0 535 Q 320 462 640 506 Q 960 548 1200 500 Q 1320 476 1440 512 L1440 700 L0 700 Z" fill="#C99C84"/>
+      <!-- forest edge on the mid ridge -->
+      <g fill="#9C6F56">
+        <g transform="translate(1010 470)"><rect x="-3" y="0" width="6" height="34"/><path d="M0 -34 L18 6 L-18 6 Z"/><path d="M0 -16 L16 18 L-16 18 Z"/></g>
+        <g transform="translate(1070 478)"><rect x="-3" y="0" width="6" height="30"/><path d="M0 -30 L16 6 L-16 6 Z"/><path d="M0 -14 L14 16 L-14 16 Z"/></g>
+        <g transform="translate(1150 472)"><rect x="-3" y="0" width="6" height="34"/><path d="M0 -34 L18 6 L-18 6 Z"/><path d="M0 -16 L16 18 L-16 18 Z"/></g>
+        <g transform="translate(1215 482)"><rect x="-3" y="0" width="6" height="28"/><path d="M0 -28 L15 6 L-15 6 Z"/></g>
+      </g>
+      <path d="M0 602 Q 360 560 760 590 Q 1080 614 1440 586 L1440 700 L0 700 Z" fill="#AE7C63"/>
+      <!-- a small group of people walking through the field (silhouettes, no faces) -->
+      <g fill="#8A5C44">
+        <g transform="translate(250 596)"><circle cx="0" cy="-26" r="6"/><path d="M-7 -20 Q0 -25 7 -20 L5 6 L-5 6 Z"/></g>
+        <g transform="translate(300 602)"><circle cx="0" cy="-24" r="5.5"/><path d="M-6 -19 Q0 -23 6 -19 L4 8 L-4 8 Z"/></g>
+        <g transform="translate(345 598)"><circle cx="0" cy="-27" r="6"/><path d="M-7 -21 Q0 -26 7 -21 L5 7 L-5 7 Z"/></g>
+        <g transform="translate(392 606)"><circle cx="0" cy="-23" r="5"/><path d="M-6 -18 Q0 -22 6 -18 L4 9 L-4 9 Z"/></g>
+        <g transform="translate(208 604)"><circle cx="0" cy="-22" r="5"/><path d="M-6 -17 Q0 -21 6 -17 L4 9 L-4 9 Z"/></g>
+      </g>
+    </svg>
+    <img id="heroImg" alt="" style="display:none;" />
+  </div>
+  <div class="wrap">
+    <h1 class="reveal">I accelerate impact through delivery, not box-ticking.</h1>
+    <p class="lead reveal">Environmental and social impact come alive when implementation shows results. I help turn strategies into outcomes with tangible results for people and planet.</p>
+    <div class="btn-row reveal">
+      <a href="#contact" class="btn btn-primary">Let's work together
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#work" class="btn btn-ghost">See the work</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL CHALLENGE -->
+<section class="statement">
+  <div class="wrap">
+    <h2 class="reveal">The strategy was not the challenge,<br/>effective <em>delivery</em> was.</h2>
+    <p class="reveal">I started Kind Regards because I deeply understand the need for strategy, but too often experienced implementation that lacks momentum. Roadmaps launched with ambition, then stalled. Action plans developed, but milestones not achieved. Kind Regards exists to close that gap, moving great ideas into the real world and turning them into impactful results.</p>
+  </div>
+</section>
+
+<!-- ABOUT ME / WHY WORK WITH ME -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="photo-frame reveal" id="photoFrame">
+        <!-- Drop your headshot in: place a file named "angela.jpg" beside this page and it appears here automatically. -->
+        <div class="photo-placeholder" id="photoPlaceholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <span>Your photo goes here<br/>(add a file named angela.jpg)</span>
+        </div>
+        <img id="photoImg" alt="Angela Mayer, founder of Kind Regards" style="display:none;" />
+      </div>
+      <div class="about-body reveal">
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:22px;">A decade of turning ambition into impact.</h2>
+        <p>I am passionate about impact, real impact. With over a decade in corporate and community sustainability, my experience is deeply rooted in environmental and social impact for a circular economy.</p>
+        <p>I've led complex programs for corporates, governments and NGOs, working with stakeholders at every level, from grassroots organisations, regulators and industry partners to international networks. From circular systems design, including reduction, reuse and recycling solutions, to government relations and policy needs or social impact initiatives, I've managed international development projects and delivered community waste-collection pilots, national product stewardship initiatives and industry-driven plastic reduction programs, always with the emphasis on tangible outcomes and a genuine circular economy for people and planet.</p>
+        <p>As Kind Regards, I help organisations move from ESG commitments to measurable action, converting big targets into achievable steps, from planning to execution and reporting.</p>
+        <p class="signature">Angela Mayer
+          <small>FOUNDER · KIND REGARDS</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MY OFFERINGS -->
+<section id="offerings">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">My Offerings</p>
+      <h2>What I bring to your work.</h2>
+      <p>I specialise in authentic stakeholder engagement and project delivery.</p>
+    </div>
+    <div class="val-grid four">
+      <div class="val-card reveal">
+        <div class="val-num">01</div>
+        <h3>Program &amp; project leadership</h3>
+        <p>End-to-end delivery, keeping momentum from kickoff to outcome. Supportive leadership that gives teams clear direction and confidence to deliver.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-num">02</div>
+        <h3>Authentic engagement</h3>
+        <p>Genuine engagement across cultures, people and business priorities. I am honest and authentic in my work and thrive in collaboration.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-num">03</div>
+        <h3>No box-ticking</h3>
+        <p>I thrive in complexity while applying individual approaches that serve your needs. For me the job is done when outcomes are measurable, not reports approved.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-num">04</div>
+        <h3>Impact counts</h3>
+        <p>Change happens when things move and people act. When you work with me, I get my hands dirty to move your strategy, roadmap and action plan into real outcomes. That is my way to have impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK EXAMPLES -->
+<section id="work" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Work Examples</p>
+      <h2>Selected Work.</h2>
+      <p>A snapshot of work delivered across sectors, stakeholders and countries, each one moved from plan to measurable result.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-tag">Strategy into delivery</div>
+        <h3>From 3D-printing concept to delivery impact</h3>
+        <p>Turned UNSW's 3D-printing technology concept into a practical roadmap for transforming plastic waste into long-term, sustainable products.</p>
+        <span class="work-role">Delivery Advisor</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-tag">Program management</div>
+        <h3>The ANZPAC Plastics Pact</h3>
+        <p>Managed a multi-stakeholder program tackling plastic pollution across Australia, New Zealand and the Pacific through collaborative circular solutions.</p>
+        <span class="work-role">Program Lead</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-tag">Project management</div>
+        <h3>Setup of a PMO</h3>
+        <p>Established a Project Management Office at a national intergovernmental organisation, bringing structure and delivery discipline to its initiatives.</p>
+        <span class="work-role">PMO Lead</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-tag">Stakeholder collaboration &amp; engagement</div>
+        <h3>Pacific-led, multi-stakeholder circular economy project</h3>
+        <p>Brought brands, government, recyclers and community partners together to co-build a plastics recovery project that delivered environmental and social results for and with Fiji communities.</p>
+        <span class="work-role">Project Lead</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-tag">Circular economy</div>
+        <h3>Circularity principles &amp; single-use action plans</h3>
+        <p>Developed Circularity Principles for packaging design and action plans to eliminate single-use plastic packaging, plus a circular economy business case for plastics in collaboration with State Government.</p>
+        <span class="work-role">Project Lead</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Let's talk</p>
+    <h2>Ready to turn your strategy into outcomes?</h2>
+    <p>I'd love to hear about it. I am based in Australia, working nationally and internationally, time zones are no barrier to great collaboration.</p>
+    <div class="btn-row">
+      <a href="mailto:angela@kind-regards.com.au" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+        Email me
+      </a>
+      <a href="https://www.linkedin.com/in/mayerangela" target="_blank" rel="noopener" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.84-2.05 3.78-2.05C20.4 8.65 22 11 22 14.6V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21H9z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
+    <p class="loc">angela@kind-regards.com.au &nbsp;·&nbsp; Australia, working worldwide</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="foot-brand">Kind Regards</div>
+      <p style="margin:8px 0 0;font-size:14px;">Impact Strategy, delivered.</p>
+    </div>
+    <div class="ack">
+      <strong>Acknowledgement of Country</strong>
+      I acknowledge the Traditional Owners of Country throughout Australia and recognise their continuing connection to lands, waters and communities. I pay my respect to Aboriginal and Torres Strait Islander cultures, and to Elders past and present.
+    </div>
+    <div class="foot-copy">© <span id="yr"></span> Kind Regards · Angela Mayer. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav shadow
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>12) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  });
+  // year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // scroll reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // auto-show headshot if angela.jpg is present
+  (function(){
+    var img=document.getElementById('photoImg'), ph=document.getElementById('photoPlaceholder');
+    var test=new Image();
+    test.onload=function(){ img.src='angela.jpg'; img.style.display='block'; ph.style.display='none'; };
+    test.src='angela.jpg';
+  })();
+  // use hero.jpg as the faint hero backdrop if present (otherwise the built-in illustration shows)
+  (function(){
+    var img=document.getElementById('heroImg'), svg=document.getElementById('heroSvg');
+    var test=new Image();
+    test.onload=function(){ img.src='hero.jpg'; img.style.display='block'; if(svg) svg.style.display='none'; };
+    test.src='hero.jpg';
+  })();
+</script>
+</body>
+</html>
